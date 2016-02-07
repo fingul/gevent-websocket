@@ -218,10 +218,13 @@ class WebSocketHandler(WSGIHandler):
         else:
             accept = base64.b64encode(hashlib.sha1(key + self.GUID).digest())
 
+        encoded = (key + self.GUID).encode('utf-8')
+        hashed = hashlib.sha1(encoded).digest()
+        string = base64.b64encode(hashed).decode()
         headers = [
             ("Upgrade", "websocket"),
             ("Connection", "Upgrade"),
-            ("Sec-WebSocket-Accept", accept)
+            ("Sec-WebSocket-Accept", string)
         ]
 
         if protocol:
