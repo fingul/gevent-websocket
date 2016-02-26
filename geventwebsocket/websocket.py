@@ -529,7 +529,7 @@ class Header(object):
         """
         first_byte = opcode
         second_byte = 0
-        extra = None
+        extra = b''
 
         if fin:
             first_byte |= cls.FIN_MASK
