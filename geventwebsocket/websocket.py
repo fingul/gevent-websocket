@@ -331,9 +331,10 @@ class WebSocket(object):
             self.raw_write(header + message)
         except error:
             raise WebSocketError(MSG_SOCKET_DEAD)
-        except:
-            import ipdb; ipdb.set_trace() 
-            raise
+        except Exception as e:
+            print(repr(e))
+            # import ipdb; ipdb.set_trace()
+            # raise
 
     def send(self, message, binary=None):
         """
