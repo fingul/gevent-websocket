@@ -325,7 +325,7 @@ class WebSocket(object):
         elif opcode == self.OPCODE_BINARY:
             message = b(str(message))
 
-        header = Header.encode_header(True, opcode, b'', len(message), 0)
+        header = b(Header.encode_header(True, opcode, b'', len(message), 0))
 
         try:
             self.raw_write(header + message)
