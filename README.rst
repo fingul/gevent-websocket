@@ -2,7 +2,9 @@
 TEMP PYTHON3 FIX FORK
 ================
 
-`pip install git+https://github.com/fingul/gevent-websocket#egg=gevent-websocket`
+::
+
+    pip install git+https://github.com/fingul/gevent-websocket#egg=gevent-websocket
 
 ================
 gevent-websocket
